@@ -159,7 +159,7 @@ func saveConfig(config *Config) error {
 }
 
 func addAPI(config *Config, apiSpec string) {
-	parts := strings.Split(apiSpec, ":")
+	parts := strings.SplitN(apiSpec, ":", 2)
 	if len(parts) != 2 {
 		fmt.Println("Invalid format. Use api:provider-model or local:model")
 		os.Exit(1)
